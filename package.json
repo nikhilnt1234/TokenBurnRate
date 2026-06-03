@@ -1,0 +1,69 @@
+{
+  "name": "token-tracker-mcp",
+  "version": "1.0.0",
+  "description": "Track LLM token costs across Claude, GPT and Gemini. MCP server + CLI dashboard with optimization hints.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "token-tracker": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build":          "tsup",
+    "dev":            "tsup --watch",
+    "start":          "node dist/index.js",
+    "test":           "npx tsx tests/pricing.test.ts && npx tsx tests/hints.test.ts",
+    "release:patch":  "node scripts/release.js patch",
+    "release:minor":  "node scripts/release.js minor",
+    "release:major":  "node scripts/release.js major",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.0",
+    "zod": "^3.23.8"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^9.6.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20.14.0",
+    "tsup": "^8.1.0",
+    "tsx": "^4.15.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "mcp",
+    "token-tracker",
+    "claude",
+    "llm",
+    "ai",
+    "cost",
+    "observability",
+    "claude-code",
+    "openai",
+    "gemini",
+    "cli",
+    "tokenburn"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilnt1234/TokenBurnRate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikhilnt1234/TokenBurnRate/issues"
+  },
+  "homepage": "https://github.com/nikhilnt1234/TokenBurnRate#readme"
+}
